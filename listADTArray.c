@@ -8,11 +8,26 @@ ListADTArray createList() {
 }
 
 int append(ListADTArray *L, int X) {
-	return 0;
+	if (L->size < MAX) {
+		L->items[L->size] = X;
+		L->size++;
+		return 1;
+	} else {
+		return 0;
+	}
 }
 
 int prepend(ListADTArray *L, int X) {
-	return 0;
+	if (L->size < MAX) {
+		for (int i = L->size; i > 0; i--) {
+			L->items[i] = L->items[i - 1];
+		}
+		L->items[0] = X;
+		L->size++;
+		return 1;
+	} else {
+		return 0;
+	}
 }
 
 int isEmpty(ListADTArray L) {
@@ -31,7 +46,7 @@ int removeItem(ListADTArray* L, int X) {
 	int removed = 0;
 	for (int i = 0; i < L->size; i++) {
 		if (removed && (i < L->size - 1)) {
-			 L->items[i] = L->items[i + 1];
+			L->items[i] = L->items[i + 1];
 		}
 		if (L->items[i] == X) {
 			removed = 1;
@@ -64,10 +79,10 @@ void printReverse(ListADTArray L) {
 
 void sort(ListADTArray* L) {
 	int swap;
-	for (int i=0; i<L->size-1; i++)
-		for (int j = 0; j < L->size - i - 1; j++) 
-			if(L->items[j]>L->items[j+1]){
-				swap = L->items[j];
+	for (int i=0; i<L->size-1; i++)	// Loop through the list
+		for (int j = 0; j < L->size - i - 1; j++)
+			if(L->items[j]>L->items[j+1]){	// Swap if the item is greater than the next item
+				swap = L->items[j];	// Swap the items
 				L->items[j] = L->items[j + 1];
 				L->items[j + 1] = swap;
 			}

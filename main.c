@@ -1,7 +1,7 @@
 /** lab02.c
  * ===========================================================
- * Name: First Last
- * Section: xxx
+ * Name: David Petzold
+ * Section: M3
  * Project: Lab 2 - List ADT (w/array)
  * ===========================================================
  */
@@ -19,11 +19,11 @@ int main() {
     append(&myList, 33);
     append(&myList, 99);
     print(myList);
- 
+
     // prepend item
     prepend(&myList, 17);
     print(myList);
 
     return 0;
-    
+
 }
